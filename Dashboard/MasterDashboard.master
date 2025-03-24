@@ -1,0 +1,126 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterDashboard.master.cs" Inherits="MasterDashboard" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title -->
+    <title>GBK Group | Welcome To GBK Group</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/Gbk_Group_fav.png">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../style.css">
+    <asp:ContentPlaceHolder id="headDashboad" runat="server">
+
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div>
+        <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    <!-- /Preloader -->
+
+    <!-- Header Area Start -->
+    <header class="header-area">
+
+        <!-- Main Header Start -->
+        <div class="main-header-area">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Classy Menu -->
+                    <nav class="classy-navbar justify-content-between" id="robertoNav">
+
+                         <!-- Logo -->
+                        <!-- <a class="nav-brand" href="./index.html"><img src="./img/core-img/logo.png" alt=""></a> -->
+						<a class="nav-brand" style="max-width:100%;font-size:20px" href="#">
+                            GBK Group | Dashboard
+                        </a>
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+                            <!-- Menu Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul id="nav">
+                                    <li class="active"><a href="./HomeDashboard.html">Home</a></li>                                    
+                                    <li class="active"><a href="./AboutUsDashboard.html"">About Us</a></li>
+									<li><a href="./ProjectsDashboard.html">Projects</a></li>
+									<li><a href="./GalleryDashboard.html">Gallery</a></li>	
+                                    <li><a href="#">Menu</a>
+                                        <ul class="dropdown"> 
+                                          <li><a href="Login.html" style="color:red"><i class="fa fa-ban"></i> Logout</a></li>
+                                        </ul> 
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+        <asp:ContentPlaceHolder id="bodyDashboad" runat="server">
+        
+        </asp:ContentPlaceHolder>
+        <br />
+        <br />
+        <!-- Footer Area Start -->
+    <footer class="footer-area">
+
+        <!-- Copywrite Area -->
+        <div class="container">
+            <div class="copywrite-content">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-8">
+                        <!-- Copywrite Text -->
+                        <div class="copywrite-text">
+                            <p>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> GBK Group</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <!-- Social Info -->
+                        <div class="social-info">
+                            <a href="http://www.makeindiaunitech.com" target="_blank"><img src="../img/Make-India_Logo-90x80.png" style="max-width: 35px;"/></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Area End -->
+
+    <!-- **** All JS Files ***** -->
+    <!-- jQuery 2.2.4 -->
+    <script src="../js/jquery.min.js"></script>
+    <!-- Popper -->
+    <script src="../js/popper.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- All Plugins -->
+    <script src="../js/roberto.bundle.js"></script>
+    <!-- Active -->
+    <script src="../js/default-assets/active.js"></script>
+        <asp:ContentPlaceHolder id="scriptDashboad" runat="server">
+
+        </asp:ContentPlaceHolder>
+    </div>
+</body>
+</html>

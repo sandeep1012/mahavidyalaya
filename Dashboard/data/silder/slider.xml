@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataset>
+  <record visible="True" id="1">
+    <postid>1</postid>
+    <preferenceId>2</preferenceId>
+    <title>Main Image</title>
+    <FileName>final-tawaf.jpg</FileName>
+    <FileType>.jpg</FileType>
+    <FilePath>Xml_data/images/slider/final-tawaf.jpg</FilePath>
+    <CurrDate>26-Oct-17 12:52:40 PM</CurrDate>
+  </record>
+  <record visible="True" id="2">
+    <postid>2</postid>
+    <preferenceId>1</preferenceId>
+    <title>sec</title>
+    <FileName>tawaff-of-kabatullah.jpg</FileName>
+    <FileType>.jpg</FileType>
+    <FilePath>Xml_data/images/slider/tawaff-of-kabatullah.jpg</FilePath>
+    <CurrDate>26-Oct-17 12:56:57 PM</CurrDate>
+  </record>
+  <record visible="True" id="3">
+    <postid>3</postid>
+    <preferenceId>3</preferenceId>
+    <title></title>
+    <FileName>IMG-20170117-WA0049.jpeg</FileName>
+    <FileType>.jpeg</FileType>
+    <FilePath>Xml_data/images/slider/IMG-20170117-WA0049.jpeg</FilePath>
+    <CurrDate>12/17/2017 2:47:39 AM</CurrDate>
+  </record>
+  <record visible="True" id="4">
+    <postid>4</postid>
+    <preferenceId>4</preferenceId>
+    <title></title>
+    <FileName>FB_IMG_1484591986542.jpg</FileName>
+    <FileType>.jpg</FileType>
+    <FilePath>Xml_data/images/slider/FB_IMG_1484591986542.jpg</FilePath>
+    <CurrDate>12/17/2017 2:50:38 AM</CurrDate>
+  </record>
+</dataset>

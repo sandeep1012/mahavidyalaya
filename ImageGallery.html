@@ -1,169 +1,186 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <head runat="server">
+    <meta charset="UTF-8" />
+    <meta name="description" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <!-- Title -->
     <title>VIDYA VARIDHI MAHAVIDYALAYA</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="img/logo.png">
+    <link rel="icon" href="img/logo.png" />
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <style>
-        .mg-left-5 {
-            margin-left: 5px;
+      .mg-left-5 {
+        margin-left: 5px;
+      }
+
+      .blink_me {
+        animation: blinker 1s linear infinite;
+      }
+
+      @keyframes blinker {
+        50% {
+          opacity: 0;
         }
+      }
 
-        .blink_me {
-            animation: blinker 1s linear infinite;
-        }
+      .textshadow {
+        text-shadow: 1px 1px 0 #ff8c00, 2px 2px 0 #ff8c00;
+      }
 
-        @keyframes blinker {
-            50% {
-                opacity: 0;
-            }
-        }
+      .clickhere {
+        color: white;
+        position: absolute;
+        bottom: 2%;
+        left: 18%;
+        font-size: 38px;
+        font-weight: bold;
+        text-shadow: 1px 1px 0 #344a7b, 2px 2px 0 #344a7b;
+      }
 
-        .textshadow {
-            text-shadow: 1px 1px 0 #ff8c00, 2px 2px 0 #ff8c00;
-        }
+      .hover_bkgr_fricc {
+        background: rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+        display: none;
+        height: 100%;
+        position: fixed;
+        text-align: center;
+        top: 0;
+        width: 100%;
+        z-index: 10000;
+      }
 
+      .hover_bkgr_fricc .helper {
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+      }
 
+      .hover_bkgr_fricc > div {
+        background-color: #fff;
+        box-shadow: 10px 10px 60px #555;
+        display: inline-block;
+        height: auto;
+        max-width: 600px;
+        min-height: 100px;
+        vertical-align: middle;
+        width: 90%;
+        position: relative;
+        border-radius: 8px;
+        padding: 10px 10px;
+      }
 
-               .clickhere {
-            color: white;
-            position: absolute;
-            bottom: 2%;
-            left: 18%;
-            font-size: 38px;
-            font-weight: bold;
-            text-shadow: 1px 1px 0 #344a7b, 2px 2px 0 #344a7b;
-        }
+      .popupCloseButton {
+        color: darkred;
+        background-color: #fff;
+        /*border: 3px solid #999;*/
+        border-radius: 50px;
+        cursor: pointer;
+        display: inline-block;
+        font-family: arial;
+        font-weight: bold;
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        font-size: 25px;
+        line-height: 30px;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+      }
 
-        .hover_bkgr_fricc {
-            background: rgba(0,0,0,.4);
-            cursor: pointer;
-            display: none;
-            height: 100%;
-            position: fixed;
-            text-align: center;
-            top: 0;
-            width: 100%;
-            z-index: 10000;
-        }
+      .popupCloseButton:hover {
+        background-color: #ccc;
+      }
 
-            .hover_bkgr_fricc .helper {
-                display: inline-block;
-                height: 100%;
-                vertical-align: middle;
-            }
-
-            .hover_bkgr_fricc > div {
-                background-color: #fff;
-                box-shadow: 10px 10px 60px #555;
-                display: inline-block;
-                height: auto;
-                max-width: 600px;
-                min-height: 100px;
-                vertical-align: middle;
-                width: 90%;
-                position: relative;
-                border-radius: 8px;
-                padding: 10px 10px;
-            }
-
-        .popupCloseButton {
-            color: darkred;
-            background-color: #fff;
-            /*border: 3px solid #999;*/
-            border-radius: 50px;
-            cursor: pointer;
-            display: inline-block;
-            font-family: arial;
-            font-weight: bold;
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            font-size: 25px;
-            line-height: 30px;
-            width: 30px;
-            height: 30px;
-            text-align: center;
-        }
-
-            .popupCloseButton:hover {
-                background-color: #ccc;
-            }
-
-        .trigger_popup_fricc {
-            cursor: pointer;
-            font-size: 20px;
-            margin: 20px;
-            display: inline-block;
-            font-weight: bold;
-        }
+      .trigger_popup_fricc {
+        cursor: pointer;
+        font-size: 20px;
+        margin: 20px;
+        display: inline-block;
+        font-weight: bold;
+      }
     </style>
     <!-- put ur header here -->
     <style>
-        .news-date {
-            position: relative;
-            z-index: 1;
-            font-size: 14px;
-            color: #afb4bf;
-            display: inline-block;
-            margin-right: 30px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+      .news-date {
+        position: relative;
+        z-index: 1;
+        font-size: 14px;
+        color: #afb4bf;
+        display: inline-block;
+        margin-right: 30px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
 
-        .news-type {
-            color: #c83434;
-        }
+      .news-type {
+        color: #c83434;
+      }
 
-        .news-title {
-            font-size: 20px;
-            line-height: 1.2;
-            display: block;
-            margin-bottom: 15px;
-        }
+      .news-title {
+        font-size: 20px;
+        line-height: 1.2;
+        display: block;
+        margin-bottom: 15px;
+      }
+
+      .img-gallery {
+        float: left;
+        width: 25%;
+        height: 150px;
+        border: 2px solid #fff;
+        -webkit-transition: -webkit-transform 0.15s ease;
+        -moz-transition: -moz-transform 0.15s ease;
+        -o-transition: -o-transform 0.15s ease;
+        -ms-transition: -ms-transform 0.15s ease;
+        transition: transform 0.15s ease;
+        position: relative;
+      }
     </style>
-       <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700" rel="stylesheet">
-       <link rel="stylesheet" href="imageGallery/simple-lightbox.min.css?v2.4.1" />
-       <style>
-           /*body {
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:300,400,700"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="imageGallery/simple-lightbox.min.css?v2.4.1" />
+    <style>
+      /*body {
                font-family: 'Raleway', sans-serif;
                font-size: 20px;
                line-height: 34px;
            }*/
-   
-           * {
-               box-sizing: border-box;
-           }
-   
-           .container .gallery .a-gallery {
-               float: left;
-               width: 25%;
-               height: auto;
-               border: 2px solid #fff;
-               -webkit-transition: -webkit-transform .15s ease;
-               -moz-transition: -moz-transform .15s ease;
-               -o-transition: -o-transform .15s ease;
-               -ms-transition: -ms-transform .15s ease;
-               transition: transform .15s ease;
-               position: relative;
-           }
-   
-           .clear {
-               clear: both;
-           }
-   
-           /*a {
+
+      * {
+        box-sizing: border-box;
+      }
+
+      .container .gallery .a-gallery {
+        float: left;
+        width: 25%;
+        height: auto;
+        border: 2px solid #fff;
+        -webkit-transition: -webkit-transform 0.15s ease;
+        -moz-transition: -moz-transform 0.15s ease;
+        -o-transition: -o-transform 0.15s ease;
+        -ms-transition: -ms-transform 0.15s ease;
+        transition: transform 0.15s ease;
+        position: relative;
+      }
+
+      .clear {
+        clear: both;
+      }
+
+      /*a {
                color: #009688;
                text-decoration: none;
            }
@@ -172,329 +189,652 @@
                color: #01695f;
                text-decoration: none;
            }*/
-       </style>
+    </style>
     <!-- end ur header here -->
-</head>
-<body>
+  </head>
+  <body>
     <div>
-        <!-- Preloader -->
-    <div id="preloader">
+      <!-- Preloader -->
+      <div id="preloader">
         <div class="loader"></div>
-    </div>
-    <!-- /Preloader -->
+      </div>
+      <!-- /Preloader -->
 
-     <!-- Header Area Start -->
-     <header class="header-area">
+      <!-- Header Area Start -->
+      <header class="header-area">
         <!-- Search Form -->
         <div class="search-form d-flex align-items-center">
-            <div class="container">
-                <!-- <form action="./index.html" method="get"> -->
-                    <!-- <input type="search" name="search-form-input" id="searchFormInput" placeholder="Type your keyword ..."> -->
-                    <!-- <button type="submit"><i class="icon_search"></i></button> -->
-                <!-- </form> -->
-            </div>
+          <div class="container">
+            <!-- <form action="./index.html" method="get"> -->
+            <!-- <input type="search" name="search-form-input" id="searchFormInput" placeholder="Type your keyword ..."> -->
+            <!-- <button type="submit"><i class="icon_search"></i></button> -->
+            <!-- </form> -->
+          </div>
         </div>
 
         <!-- Top Header Area Start -->
-        <div class="top-header-area" style="background-color: #FFB200; height: 15px;">
-            <div class="container">
-                
-            </div>
+        <div
+          class="top-header-area"
+          style="background-color: #ffb200; height: 15px"
+        >
+          <div class="container"></div>
         </div>
         <!-- Top Header Area End -->
 
-         <!-- Top Header Area Start -->
-        <div class="top-header-area" style="background-color:#f7f7f7;height: auto;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3 col-lg-3" style="text-align:center">
-                        <img src="img/logo.png" style="max-height: 140px;margin: 6px 0 6px 0px;"/>
-                        <h5 style="font-size:8pt;font-family:Verdana;font-weight: 600;color: #FFB200">Be educated, be empowered!</h5>
-                    </div>
-                    <div class="col-md-9 col-lg-6" style="display: flex; align-items: center;">
-                        <div>
-                        <center>
-                            <h5 style="font-size:10pt;font-family:Verdana;margin-bottom:0px;font-weight: 700;color:#FFB200"> Nishtha Educational Welfare Trust</h5>
-                        <h2 style="color:#009fe3;font-weight: 600;margin-bottom: 0;">VIDYA VARIDHI MAHAVIDYALAYA</h2>
-                            <h5 style="font-size:9pt;font-family:Verdana;font-weight: 600;color:#FFB200;margin-bottom: 0;">सा विद्या या विमुक्तये</h5>
-                            <h5 style="font-size:12pt;font-family:Verdana;margin-top: 10px;">Santosh Bhuvan, Nallasopara East, Palghar-401209, Maharashtra</h5>
-                            <!-- <h5 style="font-size:9pt;font-family:Verdana;">Affiliated to Central Board of Secondary Education, Delhi</h5>
+        <!-- Top Header Area Start -->
+        <div
+          class="top-header-area"
+          style="background-color: #f7f7f7; height: auto"
+        >
+          <div class="container">
+            <div class="row">
+              <div class="col-md-3 col-lg-3" style="text-align: center">
+                <img
+                  src="img/logo.png"
+                  style="max-height: 140px; margin: 6px 0 6px 0px"
+                />
+                <h5
+                  style="
+                    font-size: 8pt;
+                    font-family: Verdana;
+                    font-weight: 600;
+                    color: #ffb200;
+                  "
+                >
+                  Be educated, be empowered!
+                </h5>
+              </div>
+              <div
+                class="col-md-9 col-lg-6"
+                style="display: flex; align-items: center"
+              >
+                <div>
+                  <center>
+                    <h5
+                      style="
+                        font-size: 10pt;
+                        font-family: Verdana;
+                        margin-bottom: 0px;
+                        font-weight: 700;
+                        color: #ffb200;
+                      "
+                    >
+                      Nishtha Educational Welfare Trust
+                    </h5>
+                    <h2
+                      style="color: #009fe3; font-weight: 600; margin-bottom: 0"
+                    >
+                      VIDYA VARIDHI MAHAVIDYALAYA
+                    </h2>
+                    <h5
+                      style="
+                        font-size: 9pt;
+                        font-family: Verdana;
+                        font-weight: 600;
+                        color: #ffb200;
+                        margin-bottom: 0;
+                      "
+                    >
+                      सा विद्या या विमुक्तये
+                    </h5>
+                    <h5
+                      style="
+                        font-size: 12pt;
+                        font-family: Verdana;
+                        margin-top: 10px;
+                      "
+                    >
+                      Santosh Bhuvan, Nallasopara East, Palghar-401209,
+                      Maharashtra
+                    </h5>
+                    <!-- <h5 style="font-size:9pt;font-family:Verdana;">Affiliated to Central Board of Secondary Education, Delhi</h5>
                         <h5 style="font-size:9pt;font-family:Verdana;font-weight: 600;">Affiliation Number - 1131034</h5> -->
-                            </center>
-                            </div>
-                    </div>
+                  </center>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
         <!-- Top Header Area End -->
 
         <!-- Main Header Start -->
         <div class="main-header-area">
-            <div class="classy-nav-container breakpoint-off">
-                <div class="container">
-                    <!-- Classy Menu -->
-                    <nav class="classy-navbar justify-content-between" id="robertoNav">
-
-                         <!-- Logo -->
-                         <a class="nav-brand" href="./index.html"></a> 
-						<!-- <a class="nav-brand" href="./index.html">s
+          <div class="classy-nav-container breakpoint-off">
+            <div class="container">
+              <!-- Classy Menu -->
+              <nav
+                class="classy-navbar justify-content-between"
+                id="robertoNav"
+              >
+                <!-- Logo -->
+                <a class="nav-brand" href="./index.html"></a>
+                <!-- <a class="nav-brand" href="./index.html">s
                             <img style="width: 231px;" alt="" src="img/logo.jpg">
                         </a> -->
-                        <!-- Navbar Toggler -->
-                        <div class="classy-navbar-toggler">
-                            <span class="navbarToggler"><span></span><span></span><span></span></span>
-                        </div>
-
-                        <!-- Menu -->
-                        <div class="classy-menu">
-                            <!-- Menu Close Button -->
-                            <div class="classycloseIcon">
-                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                            </div>
-                            <!-- Nav Start -->
-                            <div class="classynav">
-                                <ul id="nav">
-                                    <li class="active"><a href="./index.html">Home</a></li>                                    
-                                    <li ><a href="#">About</a>
-                                         <ul class="dropdown"> 
-                                             <li><a href="./Objective.html">Objective of School</a></li>
-                                           <li><a href="./Founder.html">Founder's Message</a></li> 
-                                             <li><a href="./Principal.html">Principal's Message</a></li>
-                                             </ul>
-                                    </li>
-									<li><a href="Academic.html">Academics</a>
-                                         <!-- <ul class="dropdown"> 
-                                             <li><a href="./AStaff.html">Academic Staff</a></li>
-                                           <li><a href="./NAStaff.html">Non-Academic Staff</a></li> 
-                                             <li><a href="./Books.html">Prescribed Books</a></li>
-                                             <li><a href="./Fees.html">Fees</a></li>
-                                             <li><a href="ScannedTC.html">Scanned TC</a></li>
-                                             </ul> -->
-									</li>
-                                    <li><a href="#">Gallery</a>
-                                         <ul class="dropdown"> 
-                                             <li><a href="ImageGallery.html">Image Gallery</a></li>
-                                           <li><a href="VideoGallery.html">Video Gallery</a></li> 
-                                             </ul>
-									</li>
-									<li><a href="#">Infrastructure</a>
-                                         <ul class="dropdown"> 
-                                             <li><a href="./Campus.html">Campus</a></li>
-                                           <li><a href="./Facilities.html">Facilities</a></li> 
-                                             </ul>
-									</li>
-                                    <li><a href="./Disclosure.html">Public Disclosure</a></li>
-                                    <!-- <li><a href="./Faculty.html">Faculty</a></li> -->
-                                    <li><a href="./Contact.html">Contact</a></li>
-                                </ul>
-
-                                <!-- Search -->
-                                <!-- <div class="search-btn ml-4"> -->
-                                    <!-- <i class="fa fa-search" aria-hidden="true"></i> -->
-                                <!-- </div> -->
-
-                                <!-- Book Now -->
-                                <!-- <div class="book-now-btn ml-3 ml-lg-5"> -->
-                                    <!-- <a href="#">Book Now <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a> -->
-                                <!-- </div> -->
-                            </div>
-                            <!-- Nav End -->
-                        </div>
-                    </nav>
+                <!-- Navbar Toggler -->
+                <div class="classy-navbar-toggler">
+                  <span class="navbarToggler"
+                    ><span></span><span></span><span></span
+                  ></span>
                 </div>
+
+                <!-- Menu -->
+                <div class="classy-menu">
+                  <!-- Menu Close Button -->
+                  <div class="classycloseIcon">
+                    <div class="cross-wrap">
+                      <span class="top"></span><span class="bottom"></span>
+                    </div>
+                  </div>
+                  <!-- Nav Start -->
+                  <div class="classynav">
+                    <ul id="nav">
+                      <li class="active"><a href="./index.html">Home</a></li>
+                      <li>
+                        <a href="#">About</a>
+                        <ul class="dropdown">
+                          <li>
+                            <a href="./Objective.html">Objective of School</a>
+                          </li>
+                          <li>
+                            <a href="./Founder.html">Founder's Message</a>
+                          </li>
+                          <li>
+                            <a href="./Principal.html">Principal's Message</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href="Academic.html">Academics</a>
+                        <!-- <ul class="dropdown"> 
+                                               <li><a href="./AStaff.html">Academic Staff</a></li>
+                                             <li><a href="./NAStaff.html">Non-Academic Staff</a></li> 
+                                               <li><a href="./Books.html">Prescribed Books</a></li>
+                                               <li><a href="./Fees.html">Fees</a></li>
+                                               <li><a href="ScannedTC.html">Scanned TC</a></li>
+                                               </ul> -->
+                      </li>
+                      <li>
+                        <a href="#">Gallery</a>
+                        <ul class="dropdown">
+                          <li><a href="ImageGallery.html">Image Gallery</a></li>
+                          <li><a href="VideoGallery.html">Video Gallery</a></li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href="#">Infrastructure</a>
+                        <ul class="dropdown">
+                          <li><a href="./Campus.html">Campus</a></li>
+                          <li><a href="./Facilities.html">Facilities</a></li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href="#">NAAC</a>
+                        <ul class="dropdown">
+                          <li><a href="#">SSR</a></li>
+                          <li><a href="#">NAAC Appeal</a></li>
+                          <li><a href="#">Criteria 1</a></li>
+                          <li><a href="#">Criteria 1</a></li>
+                          <li><a href="#">Criteria 1</a></li>
+                          <li><a href="#">Criteria 1</a></li>
+                          <li><a href="#">Criteria 1</a></li>
+                        </ul>
+                      </li>
+                      <li><a href="3">RTI</a></li>
+                      <li><a href="./Disclosure.html">Public Disclosure</a></li>
+                      <!-- <li><a href="./Faculty.html">Faculty</a></li> -->
+                      <li><a href="./Contact.html">Contact</a></li>
+                    </ul>
+
+                    <!-- Search -->
+                    <!-- <div class="search-btn ml-4"> -->
+                    <!-- <i class="fa fa-search" aria-hidden="true"></i> -->
+                    <!-- </div> -->
+
+                    <!-- Book Now -->
+                    <!-- <div class="book-now-btn ml-3 ml-lg-5"> -->
+                    <!-- <a href="#">Book Now <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a> -->
+                    <!-- </div> -->
+                  </div>
+                  <!-- Nav End -->
+                </div>
+              </nav>
             </div>
+          </div>
         </div>
-    </header>
-        <!-- body start here -->
-            <div class="breadcrumb-area contact-breadcrumb bg-img bg-overlay jarallax" style="background-image: url(img/bg-img/slider1.jpg);">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="breadcrumb-content text-center mt-100">
-                                <h2 class="page-title">Image Gallery</h2>
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb justify-content-center">
-                                        <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Image Gallery</li>
-                                    </ol>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      </header>
+      <!-- body start here -->
+      <div
+        class="breadcrumb-area contact-breadcrumb bg-img bg-overlay jarallax"
+        style="background-image: url(img/bg-img/slider1.jpg)"
+      >
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="breadcrumb-content text-center mt-100">
+                <h2 class="page-title">Image Gallery</h2>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item">
+                      <a href="./index.html">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                      Image Gallery
+                    </li>
+                  </ol>
+                </nav>
+              </div>
             </div>
-            <!-- Breadcrumb Area End -->
-        
-            <!-- Google Maps & Contact Info Area Start -->
-            <section class="google-maps-contact-info" style="padding-left:0; padding-right:0">
-                <div class="container-fluid">
-                    <div class="google-maps-contact-content" style="padding:10px">
-                        <div class="gallery">
-                            <a href="imageGallery/thumb/00.JPG" class="big">
-                                <img style="float: left; width: 25%; max-height: 150px; border: 2px solid #fff; -webkit-transition: -webkit-transform .15s ease; -moz-transition: -moz-transform .15s ease; -o-transition: -o-transform .15s ease; -ms-transition: -ms-transform .15s ease; transition: transform .15s ease; position: relative;"
-                                    src="imageGallery/thumb/00.JPG" alt="" title="VIDYA VARIDHI MAHAVIDYALAYA" /></a>
-                                    <a href="imageGallery/thumb/00.JPG" class="big">
-                                        <img style="float: left; width: 25%; max-height: 150px; border: 2px solid #fff; -webkit-transition: -webkit-transform .15s ease; -moz-transition: -moz-transform .15s ease; -o-transition: -o-transform .15s ease; -ms-transition: -ms-transform .15s ease; transition: transform .15s ease; position: relative;"
-                                            src="imageGallery/thumb/00.JPG" alt="" title="VIDYA VARIDHI MAHAVIDYALAYA" /></a>
-                                    <a href="imageGallery/thumb/01.JPG" class="big">
-                                        <img style="float: left; width: 25%; max-height: 150px; border: 2px solid #fff; -webkit-transition: -webkit-transform .15s ease; -moz-transition: -moz-transform .15s ease; -o-transition: -o-transform .15s ease; -ms-transition: -ms-transform .15s ease; transition: transform .15s ease; position: relative;"
-                                            src="imageGallery/thumb/01.JPG" alt="" title="VIDYA VARIDHI MAHAVIDYALAYA" /></a>
-                                    <a href="imageGallery/thumb/02.JPG" class="big">
-                                        <img style="float: left; width: 25%; max-height: 150px; border: 2px solid #fff; -webkit-transition: -webkit-transform .15s ease; -moz-transition: -moz-transform .15s ease; -o-transition: -o-transform .15s ease; -ms-transition: -ms-transform .15s ease; transition: transform .15s ease; position: relative;"
-                                            src="imageGallery/thumb/02.JPG" alt="" title="VIDYA VARIDHI MAHAVIDYALAYA" /></a>
-                                    <a href="imageGallery/thumb/03.JPG" class="big">
-                                        <img style="float: left; width: 25%; max-height: 150px; border: 2px solid #fff; -webkit-transition: -webkit-transform .15s ease; -moz-transition: -moz-transform .15s ease; -o-transition: -o-transform .15s ease; -ms-transition: -ms-transform .15s ease; transition: transform .15s ease; position: relative;"
-                                            src="imageGallery/thumb/03.JPG" alt="" title="VIDYA VARIDHI MAHAVIDYALAYA" /></a>
-                                    <a href="imageGallery/thumb/04.JPG" class="big">
-                                        <img style="float: left; width: 25%; max-height: 150px; border: 2px solid #fff; -webkit-transition: -webkit-transform .15s ease; -moz-transition: -moz-transform .15s ease; -o-transition: -o-transform .15s ease; -ms-transition: -ms-transform .15s ease; transition: transform .15s ease; position: relative;"
-                                            src="imageGallery/thumb/04.JPG" alt="" title="VIDYA VARIDHI MAHAVIDYALAYA" /></a>                                    
-                                    <a href="imageGallery/thumb/05.JPG" class="big">
-                                        <img style="float: left; width: 25%; max-height: 150px; border: 2px solid #fff; -webkit-transition: -webkit-transform .15s ease; -moz-transition: -moz-transform .15s ease; -o-transition: -o-transform .15s ease; -ms-transition: -ms-transform .15s ease; transition: transform .15s ease; position: relative;"
-                                            src="imageGallery/thumb/05.JPG" alt="" title="VIDYA VARIDHI MAHAVIDYALAYA" /></a>
-                                    <a href="imageGallery/thumb/06.JPG" class="big">
-                                        <img style="float: left; width: 25%; max-height: 150px; border: 2px solid #fff; -webkit-transition: -webkit-transform .15s ease; -moz-transition: -moz-transform .15s ease; -o-transition: -o-transform .15s ease; -ms-transition: -ms-transform .15s ease; transition: transform .15s ease; position: relative;"
-                                            src="imageGallery/thumb/06.JPG" alt="" title="VIDYA VARIDHI MAHAVIDYALAYA" /></a>
-                                    <a href="imageGallery/thumb/07.JPG" class="big">
-                                        <img style="float: left; width: 25%; max-height: 150px; border: 2px solid #fff; -webkit-transition: -webkit-transform .15s ease; -moz-transition: -moz-transform .15s ease; -o-transition: -o-transform .15s ease; -ms-transition: -ms-transform .15s ease; transition: transform .15s ease; position: relative;"
-                                            src="imageGallery/thumb/07.JPG" alt="" title="VIDYA VARIDHI MAHAVIDYALAYA" /></a>
-                                    <a href="imageGallery/thumb/08.JPG" class="big">
-                                        <img style="float: left; width: 25%; max-height: 150px; border: 2px solid #fff; -webkit-transition: -webkit-transform .15s ease; -moz-transition: -moz-transform .15s ease; -o-transition: -o-transform .15s ease; -ms-transition: -ms-transform .15s ease; transition: transform .15s ease; position: relative;"
-                                            src="imageGallery/thumb/08.JPG" alt="" title="VIDYA VARIDHI MAHAVIDYALAYA" /></a>
-                                    <a href="imageGallery/thumb/09.JPG" class="big">
-                                        <img style="float: left; width: 25%; max-height: 150px; border: 2px solid #fff; -webkit-transition: -webkit-transform .15s ease; -moz-transition: -moz-transform .15s ease; -o-transition: -o-transform .15s ease; -ms-transition: -ms-transform .15s ease; transition: transform .15s ease; position: relative;"
-                                            src="imageGallery/thumb/09.JPG" alt="" title="VIDYA VARIDHI MAHAVIDYALAYA" /></a>
-                                    <a href="imageGallery/thumb/10.JPG" class="big">
-                                        <img style="float: left; width: 25%; max-height: 150px; border: 2px solid #fff; -webkit-transition: -webkit-transform .15s ease; -moz-transition: -moz-transform .15s ease; -o-transition: -o-transform .15s ease; -ms-transition: -ms-transform .15s ease; transition: transform .15s ease; position: relative;"
-                                            src="imageGallery/thumb/10.JPG" alt="" title="VIDYA VARIDHI MAHAVIDYALAYA" /></a>
-                                    <a href="imageGallery/thumb/11.JPG" class="big">
-                                        <img style="float: left; width: 25%; max-height: 150px; border: 2px solid #fff; -webkit-transition: -webkit-transform .15s ease; -moz-transition: -moz-transform .15s ease; -o-transition: -o-transform .15s ease; -ms-transition: -ms-transform .15s ease; transition: transform .15s ease; position: relative;"
-                                            src="imageGallery/thumb/11.JPG" alt="" title="VIDYA VARIDHI MAHAVIDYALAYA" /></a>
-                                    <a href="imageGallery/thumb/12.JPG" class="big">
-                                        <img style="float: left; width: 25%; max-height: 150px; border: 2px solid #fff; -webkit-transition: -webkit-transform .15s ease; -moz-transition: -moz-transform .15s ease; -o-transition: -o-transform .15s ease; -ms-transition: -ms-transform .15s ease; transition: transform .15s ease; position: relative;"
-                                            src="imageGallery/thumb/12.JPG" alt="" title="VIDYA VARIDHI MAHAVIDYALAYA" /></a>
-                                    <a href="imageGallery/thumb/13.JPG" class="big">
-                                        <img style="float: left; width: 25%; max-height: 150px; border: 2px solid #fff; -webkit-transition: -webkit-transform .15s ease; -moz-transition: -moz-transform .15s ease; -o-transition: -o-transform .15s ease; -ms-transition: -ms-transform .15s ease; transition: transform .15s ease; position: relative;"
-                                            src="imageGallery/thumb/13.JPG" alt="" title="VIDYA VARIDHI MAHAVIDYALAYA" /></a>
-                                    <a href="imageGallery/thumb/14.JPG" class="big">
-                                        <img style="float: left; width: 25%; max-height: 150px; border: 2px solid #fff; -webkit-transition: -webkit-transform .15s ease; -moz-transition: -moz-transform .15s ease; -o-transition: -o-transform .15s ease; -ms-transition: -ms-transform .15s ease; transition: transform .15s ease; position: relative;"
-                                            src="imageGallery/thumb/14.JPG" alt="" title="VIDYA VARIDHI MAHAVIDYALAYA" /></a>
-                                    <a href="imageGallery/thumb/15.JPG" class="big">
-                                        <img style="float: left; width: 25%; max-height: 150px; border: 2px solid #fff; -webkit-transition: -webkit-transform .15s ease; -moz-transition: -moz-transform .15s ease; -o-transition: -o-transform .15s ease; -ms-transition: -ms-transform .15s ease; transition: transform .15s ease; position: relative;"
-                                            src="imageGallery/thumb/15.JPG" alt="" title="VIDYA VARIDHI MAHAVIDYALAYA" /></a>
-                                            
-                           
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        
-        <!-- body end here -->
-        <br />
-        <br />
-       <!-- Footer Area Start -->
-    <footer class="footer-area section-padding-80-0">
+          </div>
+        </div>
+      </div>
+      <!-- Breadcrumb Area End -->
+
+      <!-- Google Maps & Contact Info Area Start -->
+      <section
+        class="google-maps-contact-info"
+        style="padding-left: 0; padding-right: 0"
+      >
+        <div class="container-fluid">
+          <div class="google-maps-contact-content" style="padding: 10px">
+            <div class="gallery">
+              <a href="imageGallery/thumb/33.jpeg" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/33.jpeg"
+                  alt=""
+                  title="Food Fest"
+              /></a>
+              <a href="imageGallery/thumb/32.jpeg" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/32.jpeg"
+                  alt=""
+                  title="Food Fest"
+              /></a>
+              <a href="imageGallery/thumb/31.jpeg" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/31.jpeg"
+                  alt=""
+                  title="Food Fest"
+              /></a>
+              <a href="imageGallery/thumb/30.jpeg" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/30.jpeg"
+                  alt=""
+                  title="Food Fest"
+              /></a>
+              <a href="imageGallery/thumb/29.jpeg" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/29.jpeg"
+                  alt=""
+                  title="Food Fest"
+              /></a>
+              <a href="imageGallery/thumb/28.jpeg" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/28.jpeg"
+                  alt=""
+                  title="Makeup competition"
+              /></a>
+              <a href="imageGallery/thumb/27.jpeg" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/27.jpeg"
+                  alt=""
+                  title="Makeup competition"
+              /></a>
+              <a href="imageGallery/thumb/26.jpeg" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/26.jpeg"
+                  alt=""
+                  title="Makeup competition"
+              /></a>
+              <a href="imageGallery/thumb/25.jpeg" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/25.jpeg"
+                  alt=""
+                  title="T-Shirt painting and rangoli"
+              /></a>
+              <a href="imageGallery/thumb/24.jpeg" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/24.jpeg"
+                  alt=""
+                  title="T-Shirt painting and rangoli"
+              /></a>
+              <a href="imageGallery/thumb/23.jpeg" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/23.jpeg"
+                  alt=""
+                  title="T-Shirt painting and rangoli"
+              /></a>
+              <a href="imageGallery/thumb/22.jpeg" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/22.jpeg"
+                  alt=""
+                  title="T-Shirt painting and rangoli"
+              /></a>
+              <a href="imageGallery/thumb/21.jpeg" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/21.jpeg"
+                  alt=""
+                  title="T-Shirt painting and rangoli"
+              /></a>
+              <a href="imageGallery/thumb/19.jpeg" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/19.jpeg"
+                  alt=""
+                  title="Industrial visit to SHIMLA DAIRY"
+              /></a>
+              <a href="imageGallery/thumb/18.jpeg" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/18.jpeg"
+                  alt=""
+                  title="Industrial visit to SHIMLA DAIRY"
+              /></a>
+              <a href="imageGallery/thumb/20.jpeg" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/20.jpeg"
+                  alt=""
+                  title="Industrial visit to SHIMLA DAIRY"
+              /></a>
+              <a href="imageGallery/thumb/16.jpeg" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/16.jpeg"
+                  alt=""
+                  title="26 January REPUBLIC DAY"
+              /></a>
+              <a href="imageGallery/thumb/17.jpeg" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/17.jpeg"
+                  alt=""
+                  title="26 January REPUBLIC DAY"
+              /></a>
+              <a href="imageGallery/thumb/01.JPG" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/01.JPG"
+                  alt=""
+                  title="VIDYA VARIDHI MAHAVIDYALAYA"
+              /></a>
+              <a href="imageGallery/thumb/02.JPG" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/02.JPG"
+                  alt=""
+                  title="VIDYA VARIDHI MAHAVIDYALAYA"
+              /></a>
+              <a href="imageGallery/thumb/03.JPG" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/03.JPG"
+                  alt=""
+                  title="VIDYA VARIDHI MAHAVIDYALAYA"
+              /></a>
+              <a href="imageGallery/thumb/04.JPG" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/04.JPG"
+                  alt=""
+                  title="VIDYA VARIDHI MAHAVIDYALAYA"
+              /></a>
+              <a href="imageGallery/thumb/05.JPG" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/05.JPG"
+                  alt=""
+                  title="VIDYA VARIDHI MAHAVIDYALAYA"
+              /></a>
+              <a href="imageGallery/thumb/06.JPG" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/06.JPG"
+                  alt=""
+                  title="VIDYA VARIDHI MAHAVIDYALAYA"
+              /></a>
+              <a href="imageGallery/thumb/07.JPG" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/07.JPG"
+                  alt=""
+                  title="VIDYA VARIDHI MAHAVIDYALAYA"
+              /></a>
+              <a href="imageGallery/thumb/08.JPG" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/08.JPG"
+                  alt=""
+                  title="VIDYA VARIDHI MAHAVIDYALAYA"
+              /></a>
+              <a href="imageGallery/thumb/09.JPG" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/09.JPG"
+                  alt=""
+                  title="VIDYA VARIDHI MAHAVIDYALAYA"
+              /></a>
+              <a href="imageGallery/thumb/10.JPG" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/10.JPG"
+                  alt=""
+                  title="VIDYA VARIDHI MAHAVIDYALAYA"
+              /></a>
+              <a href="imageGallery/thumb/11.JPG" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/11.JPG"
+                  alt=""
+                  title="VIDYA VARIDHI MAHAVIDYALAYA"
+              /></a>
+              <a href="imageGallery/thumb/12.JPG" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/12.JPG"
+                  alt=""
+                  title="VIDYA VARIDHI MAHAVIDYALAYA"
+              /></a>
+              <a href="imageGallery/thumb/13.JPG" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/13.JPG"
+                  alt=""
+                  title="VIDYA VARIDHI MAHAVIDYALAYA"
+              /></a>
+              <a href="imageGallery/thumb/14.JPG" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/14.JPG"
+                  alt=""
+                  title="VIDYA VARIDHI MAHAVIDYALAYA"
+              /></a>
+              <a href="imageGallery/thumb/15.JPG" class="big">
+                <img
+                  class="img-gallery"
+                  src="imageGallery/thumb/15.JPG"
+                  alt=""
+                  title="VIDYA VARIDHI MAHAVIDYALAYA"
+              /></a>
+
+              <div class="clear"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- body end here -->
+      <br />
+      <br />
+      <!-- Footer Area Start -->
+      <footer class="footer-area section-padding-80-0">
         <!-- Main Footer Area -->
         <div class="main-footer-area">
-            <div class="container">
-                <div class="row align-items-baseline justify-content-between">
-                    <!-- Single Footer Widget Area -->
-                    <div class="col-12 col-lg-4">
-                        <div class="single-footer-widget mb-30">
-                            <!-- Footer Logo -->              
-                            <h5 class="widget-title">Contact</h5>              
-                            <a href="tel:9226096196"><span><i class="fa fa-phone" aria-hidden="true"></i>   9226096196</span></a>
-                            <a href="tel:9175296703"><span><i class="fa fa-phone" aria-hidden="true"></i>   9175296703</span></a>
-                            <br />
-                            <a href="mailto: vidyavaridhimahilamahavidyala468@gmail.com"><span style="word-wrap: break-word;"><i class="fa fa-envelope-o" aria-hidden="true"></i>    vidyavaridhimahilamahavidyala468@gmail.com</span></a>
-                            <br />
-                            <span><i class="fa fa-map-marker" aria-hidden="true"></i>   Valai Pada Road, Santosh Bhuvan, Nallasopara(East), Palghar-401209, Maharashtra</span>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4">
-                        <div class="single-footer-widget mb-30">
-                            <!-- Widget Title -->
-                            <h5 class="widget-title">Useful Links</h5>
-
-                            <!-- Footer Nav -->
-                            <ul class="footer-nav">
-                                <li><a href="https://mu.ac.in/" ><i class="fa fa-caret-right" aria-hidden="true"></i> mu.ac.in</a></li>
-                                <li></li>                                
-                                <li><a href="https://www.ugc.gov.in/"><i class="fa fa-caret-right" aria-hidden="true"></i> ugc.gov.in</a></li>
-								<li><a href="http://naac.gov.in/index.php/en/" ><i class="fa fa-caret-right" aria-hidden="true"></i> naac.gov.in</a></li>
-                                
-                                <li><a href="https://mahadbt.maharashtra.gov.in/" ><i class="fa fa-caret-right" aria-hidden="true"></i> MAHA DBT Scholarship / Freeship</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- Single Footer Widget Area -->
-                    <div class="col-12 col-lg-4">
-                        <div class="single-footer-widget">
-                            <!-- Widget Title -->
-                            <h5 class="widget-title">Our Mission</h5>
-                            <span>Our mission is to provide quality education to students, to teach them the value of education and make them believe in the education system</span>
-                        </div>
-                    </div>
+          <div class="container">
+            <div class="row align-items-baseline justify-content-between">
+              <!-- Single Footer Widget Area -->
+              <div class="col-12 col-lg-4">
+                <div class="single-footer-widget mb-30">
+                  <!-- Footer Logo -->
+                  <h5 class="widget-title">Contact</h5>
+                  <a href="tel:9226096196"
+                    ><span
+                      ><i class="fa fa-phone" aria-hidden="true"></i>
+                      9226096196</span
+                    ></a
+                  >
+                  <a href="tel:9175296703"
+                    ><span
+                      ><i class="fa fa-phone" aria-hidden="true"></i>
+                      9175296703</span
+                    ></a
+                  >
+                  <br />
+                  <a href="mailto: vidyavaridhimahilamahavidyala468@gmail.com"
+                    ><span style="word-wrap: break-word"
+                      ><i class="fa fa-envelope-o" aria-hidden="true"></i>
+                      vidyavaridhimahilamahavidyala468@gmail.com</span
+                    ></a
+                  >
+                  <br />
+                  <span
+                    ><i class="fa fa-map-marker" aria-hidden="true"></i> Valai
+                    Pada Road, Santosh Bhuvan, Nallasopara(East),
+                    Palghar-401209, Maharashtra</span
+                  >
                 </div>
+              </div>
+              <div class="col-12 col-lg-4">
+                <div class="single-footer-widget mb-30">
+                  <!-- Widget Title -->
+                  <h5 class="widget-title">Useful Links</h5>
+
+                  <!-- Footer Nav -->
+                  <ul class="footer-nav">
+                    <li>
+                      <a href="https://mu.ac.in/"
+                        ><i class="fa fa-caret-right" aria-hidden="true"></i>
+                        mu.ac.in</a
+                      >
+                    </li>
+                    <li></li>
+                    <li>
+                      <a href="https://www.ugc.gov.in/"
+                        ><i class="fa fa-caret-right" aria-hidden="true"></i>
+                        ugc.gov.in</a
+                      >
+                    </li>
+                    <li>
+                      <a href="http://naac.gov.in/index.php/en/"
+                        ><i class="fa fa-caret-right" aria-hidden="true"></i>
+                        naac.gov.in</a
+                      >
+                    </li>
+
+                    <li>
+                      <a href="https://mahadbt.maharashtra.gov.in/"
+                        ><i class="fa fa-caret-right" aria-hidden="true"></i>
+                        MAHA DBT Scholarship / Freeship</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- Single Footer Widget Area -->
+              <div class="col-12 col-lg-4">
+                <div class="single-footer-widget">
+                  <!-- Widget Title -->
+                  <h5 class="widget-title">Our Mission</h5>
+                  <span
+                    >Our mission is to provide quality education to students, to
+                    teach them the value of education and make them believe in
+                    the education system</span
+                  >
+                </div>
+              </div>
             </div>
+          </div>
         </div>
 
         <!-- Copywrite Area -->
-        <div class="container" style="background-color: white;">
-            <div class="copywrite-content" style="border-top: none;">
-                <div class="row align-items-center">
-                    <div class="col-12 col-md-5">
-                        <!-- Copywrite Text -->
-                        <div class="copywrite-text">
-                            <p style="color:#c83434;font-weight: 600;">
-<span style="color:#777a7e;font-size: 13px;">Copyright &copy;<script>document.write(new Date().getFullYear());</script> -</span> Vidya Varidhi Mahavidyalaya</p>
-                        </div>
-                    </div>
-                    <!-- <div class="col-12 col-md-7">
+        <div class="container" style="background-color: white">
+          <div class="copywrite-content" style="border-top: none">
+            <div class="row align-items-center">
+              <div class="col-12 col-md-5">
+                <!-- Copywrite Text -->
+                <div class="copywrite-text">
+                  <p style="color: #c83434; font-weight: 600">
+                    <span style="color: #777a7e; font-size: 13px"
+                      >Copyright &copy;
+                      <script>
+                        document.write(new Date().getFullYear());
+                      </script>
+                      -</span
+                    >
+                    Vidya Varidhi Mahavidyalaya
+                  </p>
+                </div>
+              </div>
+              <!-- <div class="col-12 col-md-7">
                         <div class="social-info">
                             <span style="color:#777a7e;font-size: 13px;font-weight: 600">Developed by</span><a href="http://www.makeindiaunitech.com" target="_blank"><img src="img/Make-India_Logo-90x80.png" style="max-width: 35px;"/><span style="color:#31318e; font-size: 14px;font-weight: 600;"> Make India Uni-Technology</span></a>
                         </div>
                     </div> -->
-                </div>
             </div>
+          </div>
         </div>
-    </footer>
-    <!-- Footer Area End -->
+      </footer>
+      <!-- Footer Area End -->
 
-    <!-- **** All JS Files ***** -->
-    
-    <!-- jQuery 2.2.4 -->
-    <script src="js/jquery.min.js"></script>
-    <!-- Popper -->
-    <script src="js/popper.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- All Plugins -->
-    <script src="js/roberto.bundle.js"></script>
+      <!-- **** All JS Files ***** -->
 
-    <!-- Put ur JS here -->
-    <script src="js/pages/default.js"></script>
-    <script src="js/pages/master.js"></script>
-        
-        <!-- Active -->
-    <script src="js/default-assets/active.js"></script>
-    <script src="imageGallery/simple-lightbox.js?v2.4.1"></script>
-    <script>
+      <!-- jQuery 2.2.4 -->
+      <script src="js/jquery.min.js"></script>
+      <!-- Popper -->
+      <script src="js/popper.min.js"></script>
+      <!-- Bootstrap -->
+      <script src="js/bootstrap.min.js"></script>
+      <!-- All Plugins -->
+      <script src="js/roberto.bundle.js"></script>
+
+      <!-- Put ur JS here -->
+      <script src="js/pages/default.js"></script>
+      <script src="js/pages/master.js"></script>
+
+      <!-- Active -->
+      <script src="js/default-assets/active.js"></script>
+      <script src="imageGallery/simple-lightbox.js?v2.4.1"></script>
+      <script>
         (function () {
-            var $gallery = new SimpleLightbox('.gallery a', {});
+          var $gallery = new SimpleLightbox(".gallery a", {});
         })();
-</script>
+      </script>
     </div>
-        <div class="hover_bkgr_fricc">
-        <span class="helper"></span>
-        <div>
-            <div class="popupCloseButton">X</div>   
-            <div id="divDiscountOffer">
-            <h4 class="blink_me"><span class="textshadow" style="color:#344a7b">Hurry up!!!</span></h4>     
-            <img src="img/admission_new.jpg" style="max-width:100%;"/>
-            <!-- <span class="clickhere blink_me">Click Here</span> -->
-            </div>
+    <div class="hover_bkgr_fricc">
+      <span class="helper"></span>
+      <div>
+        <div class="popupCloseButton">X</div>
+        <div id="divDiscountOffer">
+          <h4 class="blink_me">
+            <span class="textshadow" style="color: #344a7b">Hurry up!!!</span>
+          </h4>
+          <img src="img/admission_new.jpg" style="max-width: 100%" />
+          <!-- <span class="clickhere blink_me">Click Here</span> -->
         </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

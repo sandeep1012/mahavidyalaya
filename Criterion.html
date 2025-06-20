@@ -232,7 +232,7 @@
                       Maharashtra
                     </h5>
                     <!-- <h5 style="font-size:9pt;font-family:Verdana;">Affiliated to Central Board of Secondary Education, Delhi</h5>
-                    <h5 style="font-size:9pt;font-family:Verdana;font-weight: 600;">Affiliation Number - 1131034</h5> -->
+                        <h5 style="font-size:9pt;font-family:Verdana;font-weight: 600;">Affiliation Number - 1131034</h5> -->
                   </center>
                 </div>
               </div>
@@ -253,8 +253,8 @@
                 <!-- Logo -->
                 <a class="nav-brand" href="./index.html"></a>
                 <!-- <a class="nav-brand" href="./index.html">s
-                        <img style="width: 231px;" alt="" src="img/logo.jpg">
-                    </a> -->
+                            <img style="width: 231px;" alt="" src="img/logo.jpg">
+                        </a> -->
                 <!-- Navbar Toggler -->
                 <div class="classy-navbar-toggler">
                   <span class="navbarToggler"
@@ -291,12 +291,12 @@
                       <li>
                         <a href="Academic.html">Academics</a>
                         <!-- <ul class="dropdown"> 
-                                                       <li><a href="./AStaff.html">Academic Staff</a></li>
-                                                     <li><a href="./NAStaff.html">Non-Academic Staff</a></li> 
-                                                       <li><a href="./Books.html">Prescribed Books</a></li>
-                                                       <li><a href="./Fees.html">Fees</a></li>
-                                                       <li><a href="ScannedTC.html">Scanned TC</a></li>
-                                                       </ul> -->
+                                                           <li><a href="./AStaff.html">Academic Staff</a></li>
+                                                         <li><a href="./NAStaff.html">Non-Academic Staff</a></li> 
+                                                           <li><a href="./Books.html">Prescribed Books</a></li>
+                                                           <li><a href="./Fees.html">Fees</a></li>
+                                                           <li><a href="ScannedTC.html">Scanned TC</a></li>
+                                                           </ul> -->
                       </li>
                       <li>
                         <a href="#">Gallery</a>
@@ -387,14 +387,18 @@
           <div class="row">
             <div class="col-12">
               <div class="breadcrumb-content text-center mt-100">
-                <h2 class="page-title">Public Disclosure</h2>
+                <h2 class="page-title" id="criteria-title">Criterion</h2>
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb justify-content-center">
                     <li class="breadcrumb-item">
                       <a href="./index.html">Home</a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">
-                      Public Disclosure
+                    <li
+                      class="breadcrumb-item active"
+                      aria-current="page"
+                      id="criteria-title2"
+                    >
+                      Criterion
                     </li>
                   </ol>
                 </nav>
@@ -409,7 +413,11 @@
       <section class="google-maps-contact-info">
         <div class="container-fluid">
           <div class="google-maps-contact-content">
-            <h1>Coming soon...</h1>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <tbody id="criterionTable"></tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>
@@ -550,6 +558,7 @@
       <!-- Put ur JS here -->
       <script src="js/pages/default.js"></script>
       <script src="js/pages/master.js"></script>
+      <script src="js/pages/data.js"></script>
 
       <!-- Active -->
       <script src="js/default-assets/active.js"></script>
